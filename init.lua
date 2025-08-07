@@ -1,10 +1,11 @@
--- Options 
+termguicolors = true
+-- Options
 require("core.options")
 require("core.keymaps")
 require("core.lazy")
 require("core.ui")
 
--- Configs 
+-- Configs
 require("config.telescope")
 require("config.treesitter")
 require("config.nvim-tree")
