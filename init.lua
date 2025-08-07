@@ -1,3 +1,4 @@
+vim.opt.termguicolors = true
 termguicolors = true
 -- Options
 require("core.options")
