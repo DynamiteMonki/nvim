@@ -5,3 +5,4 @@ require("core.lazy")
 
 -- Configs
 require("configs.bufferline")
+require("configs.telescope")
