@@ -20,6 +20,6 @@ return {
       filters = {dotfiles = false},
     })
 
-    vim.keymap.set("n", "<C-n>", ":NvimTreeToggle", {desc = "Toggle NvimTree"})
+    vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", {desc = "Toggle NvimTree"})
   end,
 }
