@@ -19,3 +19,5 @@ keymap("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
 
 -- Toggle current line blame
 keymap("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", opts)
+
+keymap('n', '<C-j>', '<cmd>ToggleTerm<CR>', opts)
