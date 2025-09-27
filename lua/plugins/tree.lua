@@ -1,36 +1,76 @@
 return {
-  "nvim-tree/nvim-tree.lua",
-  dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional, for folder/file icons
+	"nvim-neo-tree/neo-tree.nvim",
+	branch = "v3.x",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-tree/nvim-web-devicons", -- file icons
+		"MunifTanjim/nui.nvim", -- UI components
+	},
+	config = function()
+		require("neo-tree").setup({
+			close_if_last_window = true, -- closes if it's the last window
+			popup_border_style = "rounded",
+			enable_git_status = true,
+			enable_diagnostics = true,
 
-  config = function()
-    require("nvim-tree").setup({
-      view = {
-        width = 30,
-        side = "left",
-        relativenumber = true,
-      },
-      renderer = {
-        highlight_git = true,
-        root_folder_label = false,
-      },
-      filters = {
-        dotfiles = false, -- set true if you want to hide dotfiles
-      },
-      actions = {
-        open_file = {
-          quit_on_open = true, -- close tree when you open a file
-        },
-      },
-      git = {
-        enable = true,
-      },
-    })
+			filesystem = {
+				filtered_items = {
+					visible = true,
+					hide_dotfiles = false,
+					hide_gitignored = true,
+				},
+				follow_current_file = { enabled = true },
+				group_empty_dirs = true,
+				hijack_netrw_behavior = "open_default",
+			},
 
-    -- Keymaps for file explorer
-    local map = vim.keymap.set
-    local opts = { noremap = true, silent = true }
+			default_component_configs = {
+				icon = {
+					folder_closed = "",
+					folder_open = "",
+					folder_empty = "",
+				},
+				git_status = {
+					symbols = {
+						added = "✚",
+						modified = "",
+						deleted = "✖",
+						renamed = "",
+						untracked = "",
+						ignored = "",
+						unstaged = "",
+						staged = "",
+						conflict = "",
+					},
+				},
+			},
 
-    -- Toggle tree
-    map("n", "<leader>e", ":NvimTreeToggle<CR>", opts) 
-  end,
+			window = {
+				width = 32,
+				position = "left",
+				mappings = {
+					["<cr>"] = "open_drop", -- open in current window (drop-in style)
+					["l"] = "open_drop", -- also allow 'l'
+					["h"] = "close_node",
+				},
+			},
+
+			event_handlers = {
+				{
+					event = "file_opened",
+					handler = function(_)
+						require("neo-tree.command").execute({ action = "close" })
+					end,
+				},
+			},
+		})
+
+		-- Toggle file explorer (silent, no command-line spam)
+		vim.keymap.set(
+			"n",
+			"<leader>e",
+			":Neotree toggle<CR>",
+			{ noremap = true, silent = true, desc = "Toggle Explorer" }
+		)
+	end,
 }
