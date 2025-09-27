@@ -49,6 +49,9 @@ return {
 			vim.lsp.config("ts_ls", {})
 			vim.lsp.config("html", {})
 
+			-- starting a server
+			vim.lsp.enable({ "gopls", "pyright", "lua_ls", "rust_analyzer", "ruby_lsp", "cssls", "ts_ls", "html" })
+
 			-- Keybindings
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
