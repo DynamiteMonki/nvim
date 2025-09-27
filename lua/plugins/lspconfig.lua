@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "pyright", "clangd" },
+				ensure_installed = { "lua_ls", "ts_ls", "pyright", "clangd", "gopls" },
 			})
 		end,
 	},
@@ -35,6 +35,7 @@ return {
 			vim.lsp.config("clangd", {
 				filetypes = { "c", "cpp" },
 			})
+			vim.lsp.config("gopls", {})
 
 			-- Keybindings
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

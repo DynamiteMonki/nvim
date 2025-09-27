@@ -13,6 +13,7 @@ return {
 					null_ls.builtins.formatting.prettier, -- Js, TS
 					null_ls.builtins.formatting.black, -- Python sytax
 					null_ls.builtins.formatting.isort, -- Python imports
+					null_ls.builtins.formatting.goimports,
 				},
 			})
 
