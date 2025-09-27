@@ -14,6 +14,7 @@ return {
 					null_ls.builtins.formatting.black, -- Python sytax
 					null_ls.builtins.formatting.isort, -- Python imports
 					null_ls.builtins.formatting.goimports,
+					null_ls.builtins.formatting.clang_format,
 				},
 			})
 

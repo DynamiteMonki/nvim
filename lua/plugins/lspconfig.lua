@@ -9,7 +9,17 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "pyright", "clangd", "gopls" },
+				ensure_installed = {
+					"lua_ls",
+					"pyright",
+					"clangd",
+					"gopls",
+					"rust_analyzer",
+					"ruby_lsp",
+					"cssls",
+					"ts_ls",
+					"html",
+				},
 			})
 		end,
 	},
@@ -26,9 +36,6 @@ return {
 					},
 				},
 			})
-			vim.lsp.config("ts_ls", {
-				filetypes = { "js", "ts" },
-			})
 			vim.lsp.config("pyright", {
 				filetypes = "py",
 			})
@@ -36,6 +43,11 @@ return {
 				filetypes = { "c", "cpp" },
 			})
 			vim.lsp.config("gopls", {})
+			vim.lsp.config("rust_analyzer", {})
+			vim.lsp.config("ruby_lsp", {})
+			vim.lsp.config("cssls", {})
+			vim.lsp.config("ts_ls", {})
+			vim.lsp.config("html", {})
 
 			-- Keybindings
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
