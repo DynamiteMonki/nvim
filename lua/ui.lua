@@ -24,7 +24,3 @@ if ok then
 	})
 	vim.notify = notify
 end
-
--- ### Optional UI niceties ###
--- You can later integrate: lualine (statusline), noice (command UI).
--- Keeping it light for now, since "simple setup" was the request.

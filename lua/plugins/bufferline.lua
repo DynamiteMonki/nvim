@@ -68,5 +68,6 @@ return {
 		map("n", "<leader>bd", ":bd<CR>", opts)
 		map("n", "<leader>bl", ":BufferLineCloseLeft<CR>", opts)
 		map("n", "<leader>br", ":BufferLineCloseRight<CR>", opts)
+		map("n", "<leader>q", ":bdelete<CR>", opts)
 	end,
 }
