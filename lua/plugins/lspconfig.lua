@@ -38,10 +38,6 @@ return {
         capabilites = capabilites,
       })
 
-      vim.lsp.config('clangd', {
-        capabilites = capabilites
-      })
-
       vim.lsp.enable({ "lua_ls", "gopls", "pyright"})
     end,
   },

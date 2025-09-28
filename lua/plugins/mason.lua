@@ -15,7 +15,6 @@ return {
         "lua_ls",
         "gopls",
         "ts_ls",
-        "clangd"
       }
 
       require("mason-lspconfig").setup({
