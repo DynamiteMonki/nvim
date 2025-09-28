@@ -14,8 +14,6 @@ return {
     },
     appearance = {
       nerd_font_variant = "mono",
-      border = "rounded",            -- rounded popups
-      highlight = "PmenuSel",        -- use theme selection highlight
     },
     signature = {
       enabled = true,
@@ -32,18 +30,7 @@ return {
         auto_brackets = { enabled = true },
       },
     },
-    ghost_text = {enabled = true},
-    sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
-    },
     fuzzy = { implementation = "prefer_rust_with_warning" },
-    formatting = {
-      format = function(item, vim_item)
-        local lspkind = require("lspkind")
-        vim_item.kind = lspkind.presets.default[vim_item.kind] .. " " .. vim_item.kind
-        return vim_item
-      end,
-    },
   },
   opts_extend = { "sources.default" },
 }
