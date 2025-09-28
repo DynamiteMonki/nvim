@@ -33,6 +33,5 @@ return {
     -- Keybindings (NVChad style)
     local keymap = vim.keymap
     keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree", noremap = true, silent = true })
-    keymap.set("n", "<leader>o", ":NvimTreeFocus<CR>", { desc = "Focus NvimTree", noremap = true, silent = true  })
   end,
 }
